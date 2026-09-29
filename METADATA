@@ -12,21 +12,21 @@ third_party {
   license_type: BY_EXCEPTION_ONLY
   license_note: "contains GFDL documentation"
   security {
-    tag: "NVD-CPE2.3:cpe:/a:libexpat_project:libexpat:2.7.1"
     tag: "android:on_device_usage"
     tag: "android:privilege_level:privileged"
     tag: "android:untrusted_input"
+    tag: "NVD-CPE2.3:cpe:/a:libexpat_project:libexpat:2.8.5"
   }
   last_upgrade_date {
-    year: 2025
-    month: 4
-    day: 8
+    year: 2026
+    month: 9
+    day: 29
   }
   homepage: "https://github.com/libexpat/libexpat/"
   identifier {
     type: "Git"
     value: "https://github.com/libexpat/libexpat/"
-    version: "f9a3eeb3e09fbea04b1c451ffc422ab2f1e45744"
-    closest_version: "R_2_7_1"
+    version: "4b3f0b06f39fb5529cead381694f8929901bc273"
+    closest_version: "R_2_8_5"
   }
 }
