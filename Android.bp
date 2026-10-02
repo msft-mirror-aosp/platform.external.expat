@@ -51,6 +51,10 @@ cc_library {
         "expat/lib/xmlrole.c",
         "expat/lib/xmltok.c",
     ],
+    extra_include_dir_deps: [
+        "expat/lib/xmltok_impl.c",
+        "expat/lib/xmltok_ns.c",
+    ],
     cflags: [
         "-fno-strict-aliasing",
         "-Wall",
