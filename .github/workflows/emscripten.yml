@@ -5,7 +5,7 @@
 #                      \___/_/\_\ .__/ \__,_|\__|
 #                               |_| XML parser
 #
-# Copyright (c) 2025 Sebastian Pipping <sebastian@pipping.org>
+# Copyright (c) 2025-2026 Sebastian Pipping <sebastian@pipping.org>
 # Licensed under the MIT license:
 #
 # Permission is  hereby granted,  free of charge,  to any  person obtaining
@@ -42,25 +42,28 @@ permissions:
 jobs:
   emscripten:
     name: Build with Emscripten
-    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      with:
+        persist-credentials: false
 
     - name: Install build dependencies
       run: |-
         set -x
         sudo apt-get update
-        sudo apt-get install --yes --no-install-recommends -V \
+        sudo timeout 10m apt-get install --yes --no-install-recommends -V \
             cmake \
             emscripten \
             make
 
-    - name: Build using musl-tools
+    - name: Build using Emscripten
       run: |
         cmake_args=(
-          -DCMAKE_C_FLAGS='-O1 -pipe -Wall -Wextra -pedantic -Wno-overlength-strings'
-          -DCMAKE_CXX_FLAGS='-O2 -pipe -Wall -Wextra -pedantic -Wno-overlength-strings'
+          -DCMAKE_{C,CXX}_FLAGS='-O2 -pipe -Wall -Wextra -pedantic -Wno-overlength-strings'
           -DEXPAT_BUILD_DOCS=OFF
+          -DEXPAT_SHARED_LIBS=OFF  # to silence warning; not supported by Emscripten
           -DEXPAT_WARNINGS_AS_ERRORS=ON
         )
         set -x

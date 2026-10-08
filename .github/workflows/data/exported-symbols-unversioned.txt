@@ -27,6 +27,8 @@ XML_ParserCreateNS
 XML_ParserFree
 XML_ParserReset
 XML_ResumeParser
+XML_SetAllocTrackerActivationThreshold
+XML_SetAllocTrackerMaximumAmplification
 XML_SetAttlistDeclHandler
 XML_SetBase
 XML_SetBillionLaughsAttackProtectionActivationThreshold
@@ -48,6 +50,7 @@ XML_SetEntityDeclHandler
 XML_SetExternalEntityRefHandler
 XML_SetExternalEntityRefHandlerArg
 XML_SetHashSalt
+XML_SetHashSalt16Bytes
 XML_SetNamespaceDeclHandler
 XML_SetNotationDeclHandler
 XML_SetNotStandaloneHandler
