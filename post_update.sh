@@ -15,6 +15,5 @@ cd expat
 ./buildconf.sh
 ./configure
 
+cp -f expat_config.h lib/expat_config.h
 mv -f expat_config.h ../expat_config.h
-
-make

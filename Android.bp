@@ -73,12 +73,31 @@ cc_library {
 
     target: {
         darwin: {
+            srcs: [
+                "expat/lib/random_arc4random_buf.c",
+            ],
             cflags: ["-fno-common"],
         },
+        linux_glibc: {
+            srcs: [
+                "expat/lib/random_dev_urandom.c",
+            ],
+        },
+        linux_musl: {
+            srcs: [
+                "expat/lib/random_getrandom.c",
+            ],
+        },
         windows: {
+            srcs: [
+                "expat/lib/random_rand_s.c",
+            ],
             enabled: true,
         },
         android: {
+            srcs: [
+                "expat/lib/random_arc4random_buf.c",
+            ],
             sanitize: {
                 integer_overflow: true,
                 misc_undefined: ["bounds"],
