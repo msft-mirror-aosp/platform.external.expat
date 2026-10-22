@@ -52,6 +52,7 @@ cc_library {
         "expat/lib/xmltok.c",
     ],
     extra_include_dir_deps: [
+        "expat/lib/xcsinc.c",
         "expat/lib/xmltok_impl.c",
         "expat/lib/xmltok_ns.c",
     ],
